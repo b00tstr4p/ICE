@@ -2,6 +2,7 @@ import streamlit as st
 from config import configure_api, page_setup
 from model import summarize_notes
 from ui import render_input, render_output
+from disclaimer import show_disclaimer
 
 # --- Setup ---
 configure_api()
@@ -11,6 +12,10 @@ st.title("🩺 Patient Pre-Consultation Summarizer")
 st.markdown(
     "This tool uses AI to transform patient notes into a structured summary for clinicians."
 )
+st.markdown("---")
+
+show_disclaimer()   # 👈 call it here so it shows at the top
+
 st.markdown("---")
 
 # --- Layout ---
