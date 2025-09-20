@@ -8,22 +8,24 @@ def render_input():
         height=320,
         placeholder="e.g., 'I've had sharp pain in my lower back for 3 days...'",
     )
-    button = st.button("✨ Generate Summary", type="primary", use_container_width=True)
+    button = st.button("✨ Generate & Highlight Summary", type="primary", use_container_width=True)
     return notes, button
 
-def render_output(default_message=True):
-    """Render the summary panel."""
-    st.subheader("📋 Clinician's Summary")
-    placeholder = st.empty()
-    if default_message:
-        placeholder.markdown(
-            """
-            <div style="background-color:#f9fafc; padding: 20px; 
-                        border: 1px solid #ddd; border-radius: 12px; 
-                        height: 340px; display: flex; align-items: center; justify-content: center;">
-                <p style="color: #888; font-style: italic;">The generated summary will appear here.</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    return placeholder
+def render_output_layout():
+    """Create the side-by-side layout for the summary and highlighted text."""
+    col1, col2 = st.columns(2)
+
+    # Column 1: Key Points (Summary) - on the LEFT
+    with col1:
+        st.subheader("Traceable Summary")
+        summary_placeholder = st.empty()
+        summary_placeholder.info("The summary, color-coded to match highlights, will appear here.")
+
+    # Column 2: Highlighted Text - on the RIGHT
+    with col2:
+        st.subheader("Highlighted Patient Notes")
+        highlighted_text_placeholder = st.empty()
+        highlighted_text_placeholder.info("The original text with highlights will appear here.")
+    
+    # Return the two placeholder objects for the main app to use
+    return summary_placeholder, highlighted_text_placeholder
