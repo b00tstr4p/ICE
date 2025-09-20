@@ -4,7 +4,7 @@ def render_input():
     """Render patient notes input panel."""
     st.subheader("📝 Patient's Notes")
     notes = st.text_area(
-        "Enter the patient's notes below:",
+        "Before your appointment, please tell us what’s on your mind. You can write about anything — your ideas, worries, or what you hope to get from the consultation. There are no right or wrong answers.:",
         height=320,
         placeholder="e.g., 'I've had sharp pain in my lower back for 3 days...'",
     )
