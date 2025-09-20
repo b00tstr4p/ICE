@@ -1,7 +1,7 @@
 import streamlit as st
 from config import configure_api, page_setup
 from model import summarize_notes
-from ui import render_input, render_output
+from ui import render_input, render_output_layout
 from disclaimer import show_disclaimer
 
 # --- Setup ---
@@ -13,6 +13,11 @@ st.markdown("This tool uses AI to summarize patient notes and highlights the sou
 st.markdown("---")
 
 show_disclaimer()   # 👈 call it here so it shows at the top
+
+st.markdown("---")
+
+# --- Input Section ---
+patient_input, summarize_button = render_input()
 
 st.markdown("---")
 
