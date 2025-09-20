@@ -1,7 +1,8 @@
 import streamlit as st
 from config import configure_api, page_setup
 from model import summarize_notes
-from ui import render_input, render_output_layout
+from ui import render_input, render_output
+from disclaimer import show_disclaimer
 
 # --- Setup ---
 configure_api()
@@ -11,9 +12,8 @@ st.title("🩺 AI-Powered Clinical Summarizer")
 st.markdown("This tool uses AI to summarize patient notes and highlights the source of each summary point in the original text.")
 st.markdown("---")
 
-# --- UI Layout ---
-# Input column is now the full width initially
-patient_input, summarize_button = render_input()
+show_disclaimer()   # 👈 call it here so it shows at the top
+
 st.markdown("---")
 
 # Output columns will appear below
