@@ -17,9 +17,9 @@ def render_output_layout():
 
     # Column 1: Key Points (Summary) - on the LEFT
     with col1:
-        st.subheader("Traceable Summary")
+        st.subheader("Summary")
         summary_placeholder = st.empty()
-        summary_placeholder.info("The summary, color-coded to match highlights, will appear here.")
+        summary_placeholder.info("The summary, colour-coded to match highlights, will appear here.")
 
     # Column 2: Highlighted Text - on the RIGHT
     with col2:

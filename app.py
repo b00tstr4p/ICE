@@ -8,8 +8,8 @@ from disclaimer import show_disclaimer
 configure_api()
 page_setup()
 
-st.title("🩺 AI-Powered Clinical Summarizer")
-st.markdown("This tool uses AI to summarize patient notes and highlights the source of each summary point in the original text.")
+st.title("🩺 AI-Powered Clinical Summariser")
+st.markdown("This tool uses AI to summarise patient notes and highlights the source of each summary point in the original text.")
 st.markdown("---")
 
 show_disclaimer()   # 👈 call it here so it shows at the top
@@ -32,7 +32,7 @@ if summarize_button:
     if not patient_input.strip():
         st.warning("⚠️ Please enter some patient notes first.")
     else:
-        with st.spinner("⏳ Analyzing and linking notes..."):
+        with st.spinner("⏳ Analysing and linking notes..."):
             try:
                 # The model now returns a dictionary with categories
                 summary_data = summarize_notes(patient_input)
